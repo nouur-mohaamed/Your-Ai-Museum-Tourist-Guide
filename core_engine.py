@@ -76,7 +76,7 @@ def get_statue_info(image_url,llm):
         'statue_info_text':info_response
     }
 def answer_statue_related_questions(query_related_context,query,llm):
-    QandA_prompt=PromptTemplate("""256
+    QandA_prompt=PromptTemplate(input_variables=['query_related_context','query'],template="""256
 You are a very smart and friendly AI museum tourist guide.
 
 The Context below is the ONLY source of information you are allowed to use.
