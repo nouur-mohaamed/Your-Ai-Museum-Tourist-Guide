@@ -2,7 +2,7 @@ from dotenv import load_dotenv
 import os
 import requests
 load_dotenv()
-secret_value = os.getenv("secret")
+secret_value = os.getenv("SECRET")
 URL="https://copied-hardcore-ensure.ngrok-free.dev/translate"
 def generate_translation(text,target_lang,src_lang):
     if target_lang == "french":

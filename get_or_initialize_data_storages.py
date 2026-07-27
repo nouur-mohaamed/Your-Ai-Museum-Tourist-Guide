@@ -9,7 +9,7 @@ from get_image_embedding import get_image_embedding
 from chromadb.errors import NotFoundError
 MODEL_NAME="sentence-transformers/all-MiniLM-L6-v2"
 CHUNK_SIZE=1000
-CHUNK_OVERLAP=100
+CHUNK_OVERLAP=200
 ARTIFACTS_NAMES=['akhenaten','hatshepsut','nefertiti','ramses2','tutankhamun']
 embedding_obj=HuggingFaceEmbeddings(model_name=MODEL_NAME)
 def get_or_init_doc_storage(name):

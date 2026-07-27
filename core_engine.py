@@ -41,6 +41,9 @@ def get_name_of_statue(query_image_embedding):
 def get_context(text:str,name,k):
     docs = get_or_init_doc_storage(name).similarity_search(text, k=k) #return the index compatible with name of artifact and search in it
     retrieved_context = "\n\n".join([doc.page_content for doc in docs])
+    print("************** here is the context ***************************")
+    print(retrieved_context)
+    print("*********************** the end ***************************")
     return retrieved_context
 
 def get_statue_info(image_url,llm):
@@ -76,7 +79,7 @@ def get_statue_info(image_url,llm):
         'statue_info_text':info_response
     }
 def answer_statue_related_questions(query_related_context,query,llm):
-    QandA_prompt=PromptTemplate(input_variables=['query_related_context','query'],template="""256
+    QandA_prompt=PromptTemplate(input_variables=['query_related_context','query'],template="""512
 You are a very smart and friendly AI museum tourist guide.
 
 you're required to use The Context below to deduce the answer smartly.
@@ -87,10 +90,8 @@ you're required to use The Context below to deduce the answer smartly.
 ### End Context ###
 
 Rules:
-1. Do NOT guess or infer facts not explicitly stated.
-2. If the answer is not present in the Context and you can't implicitly deduce it, reply exactly:
-"I don't know based on the provided context."
-3. understand the meaning behind the query and the context and then answer
+1.understand the meaning behind the query and the context and then look at every sentence in the context before answering.
+3.Do NOT guess or infer facts not explicitly stated.
 4. Keep the answer concise.
 
 Question:

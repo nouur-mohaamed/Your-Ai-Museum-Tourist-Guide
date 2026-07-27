@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 
 # get the authentication password
 load_dotenv()
-secret_value = os.getenv("secret")
+secret_value = os.getenv("SECRET")
 URL="https://copied-hardcore-ensure.ngrok-free.dev/generate"
 def ask_question(prompt):
     prompt_header={
@@ -27,6 +27,7 @@ def ask_question(prompt):
     # print(prompt[3:])
     print("sending the prompt")
     result= requests.post(url=URL,headers=prompt_header,json=prompt_payload)
+    print(result)
     try:
         result=result.json()
     except ValueError:

@@ -2,7 +2,7 @@ from dotenv import load_dotenv
 import os
 import requests
 load_dotenv()
-secret_value = os.getenv("secret")
+secret_value = os.getenv("SECRET")
 URL="https://copied-hardcore-ensure.ngrok-free.dev/speech"
 def generate_speech(text,language):
     if language == "french":

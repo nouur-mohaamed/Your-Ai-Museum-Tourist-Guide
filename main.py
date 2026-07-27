@@ -636,8 +636,7 @@ if question and chat_ready:
         st.markdown(shown_question)
 
     with st.spinner("Thinking..."):
-        prompt=f"in {st.session_state.name} data,{question}"
-        context = get_context(prompt,st.session_state.name,3)
+        context = get_context(str(question),st.session_state.name,3)
 
         answer = answer_statue_related_questions(
             query_related_context=context,

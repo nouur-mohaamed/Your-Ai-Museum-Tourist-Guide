@@ -7,7 +7,7 @@ import os
 import numpy as np
 load_dotenv()
 URL_2="https://copied-hardcore-ensure.ngrok-free.dev/embedd"
-secret_value = os.getenv("secret")
+secret_value = os.getenv("SECRET")
 def get_image_embedding(image_url):
     print("prepare the image to turn to embedding")
     image = Image.open(image_url).convert("RGB") # convert into Image object
@@ -22,7 +22,9 @@ def get_image_embedding(image_url):
         'image': image_base64
     }
     print("sending image to get it's embedding")
+    print("hello")
     resulted_embedding = requests.post(url=URL_2, headers=prompt_header, json=prompt_payload)
+    print(resulted_embedding)
     try:
         resulted_embedding= resulted_embedding.json() #transform to python dictionary
     except ValueError :
