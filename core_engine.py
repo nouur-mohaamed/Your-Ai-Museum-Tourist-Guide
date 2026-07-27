@@ -76,11 +76,30 @@ def get_statue_info(image_url,llm):
         'statue_info_text':info_response
     }
 def answer_statue_related_questions(query_related_context,query,llm):
-    QandA_prompt=PromptTemplate(
-        input_variables=['query','query_related_context'],
-        template="""200you're a friendly museum tourist guide,you're asked to answer the following query:{query} 
-       answer only based on the provided context:{query_related_context},answer as concise as possible,and if you are'not 90% sure of the answer say that you don't know."""
-    )
+    QandA_prompt=PromptTemplate("""256
+You are a very smart and friendly AI museum tourist guide.
+
+The Context below is the ONLY source of information you are allowed to use.
+
+Rules:
+1. Use ONLY the Context.
+2. Do NOT use any outside knowledge.
+3. Do NOT guess or infer facts not explicitly stated.
+4. If the answer is not explicitly present in the Context, reply exactly:
+"I don't know based on the provided context."
+5. Keep the answer concise.
+
+### Context ###
+{query_related_context}
+
+### End Context ###
+
+Question:
+{query}
+
+Answer:
+"""
+)
     QandA_chain=LLMChain(llm=llm,prompt=QandA_prompt)
     return QandA_chain.run(
         {
