@@ -249,9 +249,18 @@ Open this address in your web browser to begin using the AI Museum Tourist Guide
 
 # 📸 Demo
 
+### Home Page
 
+![Home Page]("home_page.png")
 
----
+### Story AI-Generated
+
+![Upload Image](story_generated_page.png)
+
+### AI Chatbot
+
+![Chatbot](chattbot.png)
+
 
 # 📈 Results
 
