@@ -261,7 +261,13 @@ Open this address in your web browser to begin using the AI Museum Tourist Guide
 
 ![Chatbot](chattbot.png)
 
+## 🚀 Live Demo
 
+Try the AI Museum Tourist Guide in your browser:
+
+👉 https://your-ai-museum-tourist-guide-production.up.railway.app/
+
+you only need to make sure the kaggle server is running for it to work.
 # 📈 Results
 
 * Built an end-to-end AI-powered museum guide integrating computer vision, RAG, translation, and text-to-speech.
