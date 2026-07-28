@@ -251,7 +251,7 @@ Open this address in your web browser to begin using the AI Museum Tourist Guide
 
 ### Home Page
 
-![Home Page]("home_page.png")
+![Home Page](home.png)
 
 ### Story AI-Generated
 
